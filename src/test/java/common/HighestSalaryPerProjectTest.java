@@ -18,6 +18,7 @@ public class HighestSalaryPerProjectTest {
         Employee e4 = new Employee(4L, 111L, "Rahul", "Adis", 15000.0);
         Employee e5 = new Employee(5L, 333L, "John", "Cloud", 10000.0);
         Employee e6 = new Employee(6L, 222L, "Jenny", "Env", 11000.0);
+        Employee e7 = new Employee(7L, 444L, "Williams", "AWS", 19000.0);
         List<Employee> list = new ArrayList<Employee>();
         list.add(e1);
         list.add(e2);
@@ -25,6 +26,8 @@ public class HighestSalaryPerProjectTest {
         list.add(e4);
         list.add(e5);
         list.add(e6);
+        list.add(e7);
         highestSalaryPerProject.groupByProjectTitle(list);
+        highestSalaryPerProject.groupByProjectTitleOptimized(list);
     }
 }

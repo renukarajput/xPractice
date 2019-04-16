@@ -3,8 +3,9 @@ package common;
 import java.util.*;
 
 public class HighestSalaryPerProject {
-    // o/p : Adis Rahul 15000 ; Env  Rakesh 14000
-
+// o/p : Adis Rahul 15000 ; Env  Rakesh 14000
+//       Env  Rakesh 14000
+//       Cloud Pooja  12000
     public void groupByProjectTitle(List<Employee> list) {
         Map<String, List<Employee>> projectToEmpMap = new HashMap();
         for (Employee e : list) {
@@ -21,9 +22,27 @@ public class HighestSalaryPerProject {
         printHighestSalary(projectToEmpMap);
     }
 
+    public void groupByProjectTitleOptimized(List<Employee> list) {
+        Double maxSalary = Double.MIN_VALUE;
+        Map<String, Employee> projectToEmpMap = new HashMap();
+        for (Employee emp : list) {
+            String projectTitle = emp.getProjectName();
+            Double empSalary = emp.getSalary();
+            if (empSalary > maxSalary) {
+                maxSalary = empSalary;
+                projectToEmpMap.put(projectTitle, emp);
+            }
+        }
+        printHighestSalaryOptimized(projectToEmpMap);
+    }
+
+    private void printHighestSalaryOptimized(Map<String, Employee> projectToEmpMap) {
+        System.out.println("***********");
+        projectToEmpMap.forEach((k, v) -> System.out.println(k + "---> " + v.getName() + "-" + v.getSalary()));
+    }
+
     private void printHighestSalary(Map<String, List<Employee>> projectToEmpMap) {
-//        projectToEmpMap.forEach((k,v) -> System.out.println(k + "=== "+ v));
-        String name = "";
+        String empName = "";
         String projectName = "";
         Set<Map.Entry<String, List<Employee>>> entries = projectToEmpMap.entrySet();
         Iterator<Map.Entry<String, List<Employee>>> itr = entries.iterator();
@@ -33,11 +52,11 @@ public class HighestSalaryPerProject {
             for (Employee emp : next.getValue()) {
                 if (emp.getSalary() > maxSalary) {
                     maxSalary = emp.getSalary();
-                    name = emp.getName();
+                    empName = emp.getName();
                     projectName = emp.getProjectName();
                 }
             }
-            System.out.println(projectName + "-> " + name + " -> " +maxSalary);
+            System.out.println(projectName + "-> " + empName + " -> " + maxSalary);
         }
     }
 }
