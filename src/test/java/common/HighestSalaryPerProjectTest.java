@@ -25,7 +25,6 @@ public class HighestSalaryPerProjectTest {
         list.add(e4);
         list.add(e5);
         list.add(e6);
-        highestSalaryPerProject.print(list);
-
+        highestSalaryPerProject.groupByProjectTitle(list);
     }
 }

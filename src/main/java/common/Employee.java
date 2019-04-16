@@ -38,16 +38,13 @@ public class Employee {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return projectName.equals(employee.projectName) &&
-                salary.equals(employee.salary);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(projectName, salary);
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", projectId=" + projectId +
+                ", name='" + name + '\'' +
+                ", projectName='" + projectName + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }
