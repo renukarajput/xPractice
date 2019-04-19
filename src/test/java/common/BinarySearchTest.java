@@ -8,6 +8,30 @@ public class BinarySearchTest {
     BinarySearch binarySearch = new BinarySearch();
 
     @Test
+    public void insert_1() {
+        int arr[] = {1, 3};
+        assertEquals(1, binarySearch.searchInsert(arr, 2));
+    }
+
+    @Test
+    public void insert_2() {
+        int arr[] = {1, 3, 5, 6};
+        assertEquals(2, binarySearch.searchInsert(arr, 5));
+    }
+
+    @Test
+    public void insert_3() {
+        int arr[] = {1, 3, 5, 6};
+        assertEquals(4, binarySearch.searchInsert(arr, 7));
+    }
+
+    @Test
+    public void insert_4() {
+        int arr[] = {1, 3, 5, 6};
+        assertEquals(0, binarySearch.searchInsert(arr, 0));
+    }
+
+    @Test
     public void search_1() {
         int arr[] = {1, 2, 3, 4, 5, 6};
         assertEquals(4, binarySearch.search(arr, 4));
