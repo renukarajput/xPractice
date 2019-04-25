@@ -1,7 +1,5 @@
 package common;
-
-import java.util.Objects;
-
+//http://www.springboottutorial.com/spring-boot-exception-handling-for-rest-services
 public class Employee {
     private Long id;
     private Long projectId;
